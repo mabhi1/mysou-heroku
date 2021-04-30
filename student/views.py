@@ -262,8 +262,10 @@ class CreateCheckoutSessionView(View):
                 },
             ],
             mode='payment',
-            success_url='http://127.0.0.1:8000/app/success',
-            cancel_url='http://127.0.0.1:8000/app/cancel',
+            # success_url='http://127.0.0.1:8000/app/success',
+            success_url='https://mysou-django.herokuapp.com/app/success',
+            # cancel_url='http://127.0.0.1:8000/app/cancel',
+            cancel_url='https://mysou-django.herokuapp.com/app/cancel',
         )
 
         return JsonResponse({'id': checkout_session.id})
