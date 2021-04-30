@@ -1,0 +1,31 @@
+{% extends 'student/layout.html' %} {% load static %} {% block container %}
+<!-- Exam form -->
+<main class="col-md-9 ms-sm-auto col-lg-10 px-md-4" id="page1">
+    <div
+        class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+        <h1 class="h2">Events </h1>
+    </div>
+    <div class="container">
+        <div class="row">
+            {% for item in event %}
+
+            <div class="col-sm-6 my-2">
+                <div class="col">
+                    <div class="card shadow-sm">
+                        <img src="{{ item.file_link }}" height="300" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title">{{ item.title }}</h5>
+                            <button type="button" class="btn btn-sm btn-danger popMsg" data-bs-toggle="popover"
+                                title="{{ item.details }}">
+                                Details
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            {% endfor %}
+        </div>
+    </div>
+</main>
+{% endblock %}

@@ -1,0 +1,58 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Tuition and Fees</title>
+    <link href="{% static 'student/stripe.css' %}" rel="stylesheet" />
+    <script src="https://polyfill.io/v3/polyfill.min.js?version=3.52.1&features=fetch"></script>
+    <script src="https://js.stripe.com/v3/"></script>
+  </head>
+  <body>
+    <section>
+      <div class="product">
+        <img
+          src="https://images.unsplash.com/20/cambridge.JPG?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1030&q=80"
+          alt="Tuition"
+        />
+        <div class="description">
+          <h3>Tuition</h3>
+          <h5>₹77,000</h5>
+        </div>
+      </div>
+      <button type="button" id="checkout-button">Checkout</button>
+    </section>
+    {% csrf_token %}
+  </body>
+  <script type="text/javascript">
+    const csrftoken = document.querySelector("[name=csrfmiddlewaretoken]")
+      .value;
+    // Create an instance of the Stripe object with your publishable API key
+    var stripe = Stripe("pk_test_7dC03bviOZs1K97pcbwmf8VH00qgE6alsy");
+    var checkoutButton = document.getElementById("checkout-button");
+    checkoutButton.addEventListener("click", function () {
+      fetch("{% url 'create-checkout-session' %}", {
+        method: "POST",
+        headers: {
+          "X-CSRFToken": csrftoken,
+        },
+      })
+        .then(function (response) {
+          return response.json();
+        })
+        .then(function (session) {
+          return stripe.redirectToCheckout({ sessionId: session.id });
+        })
+        .then(function (result) {
+          // If redirectToCheckout fails due to a browser or network
+          // error, you should display the localized error message to your
+          // customer using error.message.
+          if (result.error) {
+            alert(result.error.message);
+          }
+        })
+        .catch(function (error) {
+          console.error("Error:", error);
+        });
+    });
+  </script>
+</html>

@@ -1,0 +1,34 @@
+{% extends 'student/layout.html' %} {% load static %}
+
+{% block container %}
+<!-- Placements -->
+<main class="col-md-9 ms-sm-auto col-lg-10 px-md-4" id="page5">
+    <div
+        class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+        <h1 class="h2">Placements </h1>
+    </div>
+
+    <div class="list-group">
+        {% for item in placements %}
+        <div class="list-group-item list-group-item-action flex-column align-items-start">
+            <div class="d-flex w-100 justify-content-between">
+                <h5 class="mb-1">{{ item.company }}</h5>
+                <small>{{ item.created_at }}</small>
+            </div>
+            <p class="mb-1 text-muted">
+                {{ item.details }}
+            </p>
+            <a href="{{ item.form_link }}" target="_blank">
+                <button style="float: right;" type="button" class="btn btn-primary btn-sm mx-2">Apply</button>
+            </a>
+            {% if item.document is not None %}
+                <a href="{{ item.documentUrl }}">
+                    <button style="float: right;" type="button" class="btn btn-primary btn-sm mx-2">Document</button>
+                </a>
+            {% endif %}
+        </div>
+        {% endfor %}
+    </div>
+
+</main>
+{% endblock %}

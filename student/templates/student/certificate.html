@@ -1,0 +1,90 @@
+{% extends 'student/layout.html' %} {% load static %}
+
+{% block container %}
+<!-- Certificate Request -->
+<main class="col-md-9 ms-sm-auto col-lg-10 px-md-4" id="page8">
+    <div
+        class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+        <h1 class="h2">Certificate Request </h1>
+    </div>
+    <div class="accordion" id="accordionExample">
+        <div class="accordion-item">
+            <h2 class="accordion-header" id="headingOne">
+                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne"
+                    aria-expanded="true" aria-controls="collapseOne">
+                    Apply For Transcript
+                </button>
+            </h2>
+            <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne"
+                data-bs-parent="#accordionExample">
+                <div class="accordion-body">
+                    <strong>Please read the instruction carefully before making an online payment:</strong>
+                    <p>
+                        You are required to pay Rs 400 per copy of the Transcript.
+                    </p>
+                    <p>
+                        Please submit relevant document/s (scanned/pdf copy of all the mark sheets/s /
+                        provisional grade sheets), online payment receipt to the below mentioned email id:
+                        student.services@socet.edu.in
+                    </p>
+                    <p>
+                        Please allow 7 working days to process your request. You’ll receive notification
+                        from us
+                        once your request has been processed.
+                    </p>
+                    <p>
+                        Bank may charge extra depending upon your mode of payment.
+                    </p>
+                    <p>
+                        <a href="#" class="link-warning"><strong> Apply Now</strong></a>
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="accordion-item">
+            <h2 class="accordion-header" id="headingTwo">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                    Apply for Bonafide Certificate
+                </button>
+            </h2>
+            <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo"
+                data-bs-parent="#accordionExample">
+                <div class="accordion-body">
+                    <strong>This is the second item's accordion body.</strong> It is hidden by default,
+                    until the collapse plugin adds the appropriate classes that we use to style each
+                    element. These classes control the overall appearance, as well as the showing and hiding
+                    via CSS transitions. You can modify any of this with custom CSS or overriding our
+                    default variables. It's also worth noting that just about any HTML can go within the
+                    <code>.accordion-body</code>, though the transition does limit overflow.
+                    <p>
+                        <a href="#" class="link-warning"><strong> Apply Now</strong></a>
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="accordion-item">
+            <h2 class="accordion-header" id="headingThree">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                    Apply for Duplicate Marksheet
+                </button>
+            </h2>
+            <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree"
+                data-bs-parent="#accordionExample">
+                <div class="accordion-body">
+                    <strong>This is the third item's accordion body.</strong> It is hidden by default, until
+                    the collapse plugin adds the appropriate classes that we use to style each element.
+                    These classes control the overall appearance, as well as the showing and hiding via CSS
+                    transitions. You can modify any of this with custom CSS or overriding our default
+                    variables. It's also worth noting that just about any HTML can go within the
+                    <code>.accordion-body</code>, though the transition does limit overflow.
+                    <p>
+                        <a href="#" class="link-warning"><strong> Apply Now</strong></a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+{% endblock %}

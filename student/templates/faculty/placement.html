@@ -1,0 +1,31 @@
+{% extends 'faculty/layout.html' %} {% load static %}
+
+{% block container %}
+<!-- Placements -->
+<main class="col-md-9 ms-sm-auto col-lg-10 px-md-4" id="page5">
+    <div
+        class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+        <h1 class="h2">Add Placement Details </h1>
+    </div>
+
+    <form action="/admin/placement/upload" enctype="multipart/form-data" method="POST">
+        {% csrf_token %}
+        <div class="form-group">
+            <label for="title" class="form-label">Company Name:</label>
+            <input type="text" class="form-control" name="title" id="title" aria-describedby="emailHelp" required>
+
+            <label for="company" class="form-label">Company Details:</label>
+            <textarea class="form-control" name="details" id="exampleInputEmail1" aria-describedby="emailHelp" required></textarea><br>
+
+                <div class="form-group">
+                    <label for="applyForm" class="form-label">Apply Form Link</label>
+                    <input type="text" class="form-control" id="applyForm" name="applyForm" required />
+                </div>
+                <div class="form-group mt-3">
+                    <label for="exampleFormControlFile1">Upload Document (optional)</label>
+                    <input type="file" name="resource" class="form-control-file" id="file">
+                </div>
+        <button type="submit" class="btn btn-primary my-3">Submit</button>
+    </form>
+</main>
+{% endblock %}

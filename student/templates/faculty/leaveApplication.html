@@ -1,0 +1,32 @@
+{% extends 'faculty/layout.html' %} {% load static %}
+
+{% block container %}
+<!-- LeaveApplication -->
+<main class="col-md-9 ms-sm-auto col-lg-10 px-md-4" id="page7">
+    <div
+        class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+        <h1 class="h2">Leave Application</h1>
+    </div>
+
+    <form>
+        <div class="form-group">
+            <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+                placeholder="Your Name">
+            <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+                placeholder="Subject">
+            <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+                placeholder="Suggest another faculty name for proxy">
+            <textarea class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+                placeholder="Reason For Leave"></textarea><br>
+            <form>
+                <div class="form-group">
+                    <label for="exampleFormControlFile1">Upload PDF</label>
+                    <input type="file" class="form-control-file" id="exampleFormControlFile1">
+                </div>
+            </form>
+            <small id="emailHelp" class="form-text text-muted">Upload PDF for leave </small>
+        </div><br>
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+</main>
+{% endblock %}

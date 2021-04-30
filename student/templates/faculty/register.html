@@ -1,0 +1,79 @@
+{% extends 'faculty/layout.html' %} {% load static %}
+
+{% block jquery %}
+<script>
+    
+        document.addEventListener('DOMContentLoaded', () => {
+            (document.querySelectorAll('.notification .delete') || []).forEach(($delete) => {
+                var $notification = $delete.parentNode;
+
+                $delete.addEventListener('click', () => {
+                    $notification.parentNode.removeChild($notification);
+                });
+            });
+        });
+
+</script>
+    {% endblock %}
+
+{% block container %}
+<!--    New User     -->
+<main class="col-md-9 ms-sm-auto col-lg-10 px-md-4" id="page7">
+    <div
+        class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+        <h1 class="h2">Create New User </h1>
+    </div>
+
+
+    <form action="/admin/register" method="POST">
+        {% csrf_token %}
+        <div class="mb-3 w-50">
+            <label for="exampleInputEmail1" class="form-label">Role</label>
+            <select name="role" id="role" onClick="onRoleChange();" class="form-select"
+                aria-label="Default select example" required>
+                <option value="student" selected>Student</option>
+                <option value="admin">Admin</option>
+                <!-- <option value="superAdmin">Super Admin</option> -->
+            </select>
+        </div>
+        <div class="mb-3 w-50">
+            <label for="exampleInputPassword1" class="form-label">Username</label>
+            <input name="username" type="text" class="form-control" id="username" required>
+        </div>
+        <div class="mb-3 w-50">
+            <label for="enroll_no" class="form-label">Enrollment Number</label>
+            <input name="enroll_no" type="text" class="form-control" id="enroll_no" required>
+        </div>
+        <div class="mb-3 w-50">
+            <label for="exampleInputPassword1" class="form-label">Password</label>
+            <input name="password" type="password" class="form-control" id="password" required>
+        </div>
+        <div class="mb-3 w-50">
+            <label for="exampleInputEmail1" class="form-label">Department</label>
+            <select name="dept_id" class="form-select" aria-label="Default select example" required>
+                <option value="CE" selected>CE</option>
+                <option value="IT">IT</option>
+                <option value="ME">ME</option>
+                <option value="AE">AE</option>
+            </select>
+        </div>
+        <button type="submit" class="btn btn-primary" data-bs-container="body" data-bs-toggle="popover"
+            data-bs-placement="top" data-bs-content="{{message}}">Submit</button>
+    </form>
+    {% if messageAlert %}
+    <div class="notification text-danger is-light my-2">
+        <button type="button" class="delete alertBtn">
+            <i class="fas fa-times"></i>
+        </button>
+        {{ messageAlert }}
+    </div>
+    {% elif messageSuccess %}
+    <div class="notification text-success is-light my-2">
+        <button type="button" class="delete successBtn">
+            <i class="fas fa-times"></i>
+        </button>
+        {{ messageSuccess }}
+    </div>
+    {% endif %}
+</main>
+{% endblock %}

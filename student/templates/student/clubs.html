@@ -1,0 +1,34 @@
+{% extends 'student/layout.html' %} {% load static %} {% block jquery %}
+<script>
+  var exampleEl = document.querySelector(".popMsg");
+  var popover = new bootstrap.Popover(exampleEl, options);
+</script>
+{% endblock %} {% block container %}
+<!-- Clubs and Organizations -->
+<main class="col-md-9 ms-sm-auto col-lg-10 px-md-4" id="page4">
+  <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+    <h1 class="h2">Clubs and Organizations</h1>
+  </div>
+  <div class="album py-5">
+    <div class="container">
+      <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+        {% for item in clubs %}
+        <div class="col">
+          <div class="card shadow-sm">
+            <img src="{{ item.file_link }}" class="card-img-top" alt="..." />
+            <div class="card-body">
+              <h5 class="card-title">{{ item.title }}</h5>
+              <button type="button" class="btn btn-sm btn-danger popMsg" data-bs-toggle="popover"
+                title="{{ item.details }}">
+                Details
+              </button>
+            </div>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+</main>
+
+{% endblock %}

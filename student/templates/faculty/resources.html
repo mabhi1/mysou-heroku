@@ -1,0 +1,50 @@
+{% extends 'faculty/layout.html' %} {% load static %}
+{% block container %}
+<!-- Resources -->
+<main class="col-md-9 ms-sm-auto col-lg-10 px-md-4" id="page3">
+    <div
+        class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+        <h1 class="h2">Add New Resources </h1>
+    </div>
+    <form method="POST" action="/admin/resources/upload" enctype="multipart/form-data" >
+    {% csrf_token %}
+        <div class="form-group">
+            <input type="text" class="form-control" name="title" id="title" aria-describedby="emailHelp"
+                placeholder="Provide Details...">
+            <textarea class="form-control" name="details" id="Sub-Details" aria-describedby="emailHelp"
+                placeholder="Provide Sub Details..."></textarea><br>
+            
+                <div class="form-group">
+                    <label for="exampleFormControlFile1">Upload PDF</label>
+                    <input type="file" name="resource" class="form-control-file" id="file">
+                </div>
+            <br>
+
+
+            <div class="custom-control custom-radio">
+                <input type="radio" id="customRadio1" name="type" value='notice' class="custom-control-input">
+                <label class="custom-control-label" for="customRadio1">Notice</label>
+            </div>
+            <div class="custom-control custom-radio">
+                <input type="radio" id="customRadio2" name="type" value='module' class="custom-control-input">
+                <label class="custom-control-label" for="customRadio2">Module Solutions</label>
+            </div>
+            <div class="custom-control custom-radio">
+                <input type="radio" id="customRadio2" name="type" value='paper' class="custom-control-input">
+                <label class="custom-control-label" for="customRadio2">Papers</label>
+            </div><br>
+        <div class="mb-3 w-25">
+            <label for="exampleInputEmail1" class="form-label">Department</label>
+            <select name="dept_id" class="form-select" aria-label="Default select example" required>
+                <option value="CE" selected>CE</option>
+                <option value="IT">IT</option>
+                <option value="ME">ME</option>
+                <option value="AE">AE</option>
+            </select>
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+
+
+</main>
+{% endblock %}

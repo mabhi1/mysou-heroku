@@ -1,0 +1,59 @@
+{% extends 'student/layout.html' %} {% load static %}
+{% block container %}
+<!-- Resources -->
+<main class="col-md-9 ms-sm-auto col-lg-10 px-md-4" id="page3">
+    <div
+        class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+        <h1 class="h2">Resources </h1>
+    </div>
+    <h4>Notices :</h4><br>
+    <div class="list-group">
+    {% for item in resources %}
+        <div class="list-group-item list-group-item-action flex-column align-items-start">
+            <div class="d-flex w-100 justify-content-between">
+                <h5 class="mb-1">{{ item.title }}</h5>
+                <small>{{ item.created_at }}</small>
+            </div>
+            <p class="mb-1">{{ item.details }}</p>
+            <a href="{{ item.file_link }}" >
+                <button style="float: right;" type="button" class="btn btn-primary btn-sm">View</button>
+            </a>
+        </div>
+
+    {% endfor %}
+    </div>
+
+    <h4>Module Solutions :</h4><br>
+        <div class="list-group">
+    {% for item in resources %}
+        <div class="list-group-item list-group-item-action flex-column align-items-start">
+            <div class="d-flex w-100 justify-content-between">
+                <h5 class="mb-1">{{ item.title }}</h5>
+                <small>{{ item.created_at }}</small>
+            </div>
+            <p class="mb-1">{{ item.details }}</p>
+            <a href="{{ item.file_link }}" >
+                <button style="float: right;" type="button" class="btn btn-primary btn-sm">View</button>
+            </a>
+        </div>
+
+    {% endfor %}
+    </div>
+    <h4>Last year papers :</h4><br>
+      <div class="list-group">
+    {% for item in resources %}
+        <div class="list-group-item list-group-item-action flex-column align-items-start">
+            <div class="d-flex w-100 justify-content-between">
+                <h5 class="mb-1">{{ item.title }}</h5>
+                <small>{{ item.created_at }}</small>
+            </div>
+            <p class="mb-1">{{ item.details }}</p>
+            <a href="{{ item.file_link }}" >
+                <button style="float: right;" type="button" class="btn btn-primary btn-sm">View</button>
+            </a>
+        </div>
+
+    {% endfor %}
+    </div>
+</main>
+{% endblock %}

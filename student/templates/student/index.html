@@ -1,0 +1,31 @@
+{% extends 'student/layout.html' %} {% load static %}
+
+{% block container %}
+<!-- Index -->
+<main class="col-md-9 ms-sm-auto col-lg-10 px-md-4" id="page6">
+  <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+    <div class="img-container">
+      <div id="carouselExampleCaptions" class="carousel carousel-dark slide" data-bs-ride="carousel">
+        <ol class="carousel-indicators">
+          <li data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active"></li>
+          <li data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1"></li>
+          <li data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2"></li>
+        </ol>
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <img src="https://silveroakuni.ac.in/upload/campus%20life/INFRASTRUCTURE/1.jpg" class="d-block w-100"
+              alt="...">
+          </div>
+          <div class="carousel-item">
+            <img src="https://silveroakuni.ac.in/upload/campus%20life/INFRASTRUCTURE/1.jpg" class="d-block w-100"
+              alt="...">
+          </div>
+          <div class="carousel-item">
+            <img src="https://silveroakuni.ac.in/upload/campus%20life/INFRASTRUCTURE/1.jpg" class="d-block w-100"
+              alt="...">
+          </div>
+        </div>
+      </div>
+    </div>
+</main>
+{% endblock %}

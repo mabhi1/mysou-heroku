@@ -1,0 +1,103 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+
+    <!-- Bulma CDN -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.1/css/bulma.min.css">
+    
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="{% static 'student/favicon.ico' %}" />
+    
+    <!-- Fontawesome5 CDN -->
+    <script defer src="https://use.fontawesome.com/releases/v5.14.0/js/all.js"></script>
+</head>
+
+<body>
+    <section class="hero is-light is-fullheight">
+        <div class="hero-body">
+            <div class="container">
+                <div class="columns is-centered">
+                    <div class="column is-5-tablet is-4-desktop is-3-widescreen">
+                        <h1 class="title has-text-centered" style="font-family: serif;">Silver Oak University</h1>
+                        <form action="{% url 'student:login' %}" class="box" method="POST">
+                            {% csrf_token %}
+                            {% if messageAlert %}
+                            <div class="notification is-danger is-light">
+                                <button class="delete"></button>
+                                {{ messageAlert }}
+                            </div>
+                            {% endif %}
+                            <div class="field">
+                                <label for="" class="label">Role</label>
+                                <div class="control has-icons-left">
+                                    <select name="role" class="form-select" aria-label="Default select example">
+                                        <option value="student" selected>Student</option>
+                                        <option value="admin">Admin</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="field">
+                                <label for="" class="label">Username</label>
+                                <div class="control has-icons-left">
+                                    <input name="username" type="text" placeholder="Username" class="input" required
+                                        autocomplete="off">
+                                    <span class="icon is-small is-left">
+                                        <i class="fas fa-user"></i>
+                                    </span>
+                                </div>
+                            </div>
+                             <div class="field">
+                                <label for="" class="label">Enrollment Number</label>
+                                <div class="control has-icons-left">
+                                    <input name="enroll_no" type="text" placeholder="Enrollment Number" class="input" required
+                                        autocomplete="off">
+                                    <span class="icon is-small is-left">
+                                        <i class="fas fa-user"></i>
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="field">
+                                <label for="" class="label">Password</label>
+                                <div class="control has-icons-left">
+                                    <input name="password" type="password" placeholder="*********" class="input"
+                                        required>
+                                    <span class="icon is-small is-left">
+                                        <i class="fa fa-lock"></i>
+                                    </span>
+
+                                </div>
+                            </div>
+                            <div class="field">
+                                <label for="" class="label">Department</label>
+                                <div class="control has-icons-left">
+                                    <select name="dept_id" class="form-select" aria-label="Default select example">
+                                        <option value="CE" selected>CE</option>
+                                        <option value="IT">IT</option>
+                                        <option value="ME">ME</option>
+                                        <option value="Civil">Civil</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="field">
+                                <a href="#" class="help level-right has-text-link">Forgot Password?</a>
+                                <a href="#" class="help level-right has-text-link">Need Help?</a>
+                                <button class="button is-success">
+                                    Login
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <script src="{% static 'student/login.js' %}" type="text/javascript"></script>
+</body>
+
+</html>

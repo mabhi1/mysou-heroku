@@ -1,0 +1,29 @@
+{% extends 'faculty/layout.html' %} {% load static %}
+
+{% block container %}
+<!-- Clubs and Organizations -->
+<main class="col-md-9 ms-sm-auto col-lg-10 px-md-4" id="page4">
+    <div
+        class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+        <h1 class="h2">Add New Clubs </h1>
+    </div>
+    <form method="POST" action="/admin/clubs/upload" enctype="multipart/form-data">
+    {% csrf_token %}
+        <div class="form-group">
+            <input type="text" class="form-control" name="title" id="title" aria-describedby="emailHelp"
+                placeholder="Club Name..." required>
+            <textarea class="form-control" name="details" id="Sub-Details" aria-describedby="emailHelp"
+                placeholder="Club Details..." required></textarea><br>
+
+                <small id="emailHelp" class="form-text text-muted">Upload Image regarding club info </small>
+            
+                <div class="form-group">
+                    <label for="exampleFormControlFile1">Upload Image</label>
+                    <input type="file" name="resource" class="form-control-file" id="file" required>
+                </div>
+            <br>
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+
+</main>
+{% endblock %}
