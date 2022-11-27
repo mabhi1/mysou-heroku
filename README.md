@@ -20,8 +20,8 @@ The project's video: https://youtu.be/2SfXX1BaTLE
 
 ### Test User
 
-Role - Student
-Username - abhi
-Enrollment Number - 100
-Password - abhi
-Department - CE
+Role - Student <br>
+Username - abhi <br>
+Enrollment Number - 100 <br>
+Password - abhi <br>
+Department - CE <br>
