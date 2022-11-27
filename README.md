@@ -17,3 +17,11 @@ Student Portal is a mobile-responsive full-stack web application made using **Dj
 - Run application `python manage.py runserver` and visit [127.0.0.1:8000](http://127.0.0.1:8000/)
 
 The project's video: https://youtu.be/2SfXX1BaTLE
+
+### Test User
+
+Role - Student
+Username - abhi
+Enrollment Number - 100
+Password - abhi
+Department - CE
